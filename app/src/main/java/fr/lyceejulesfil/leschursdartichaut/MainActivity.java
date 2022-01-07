@@ -1,5 +1,7 @@
 package fr.lyceejulesfil.leschursdartichaut;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
@@ -32,10 +34,26 @@ public class MainActivity extends AppCompatActivity {
         binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                String[] mail = new String[]{"danslesyeuxdeloli@gmail.com"};
+                Intent emailIntent = new Intent(Intent.ACTION_SEND);
+                emailIntent.setType("text/plain");
+                emailIntent.putExtra(Intent.EXTRA_EMAIL,mail);
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Contact Les choeurs d'artichaut");
+                emailIntent.putExtra(Intent.EXTRA_TEXT, "Envoyé via L'application 'Les choeurs d'artichaut'.");
+                startActivity(Intent.createChooser(emailIntent,"Choisissez de l'application"));
             }
         });
+
+        binding.appBarMain.NumBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent dialIntent = new Intent(Intent.ACTION_DIAL);
+                dialIntent.setData(Uri.parse("tel:0624712807"));
+                startActivity(dialIntent);
+            }
+        });
+
+
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each
