@@ -13,13 +13,17 @@
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="fr.lyceejulesfil.leschursdartichaut.ui.gallery.GalleryFragment"
+        android:name="fr.lyceejulesfil.leschursdartichaut.ui.googlemaps.GoogleMapsFragment"
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="fr.lyceejulesfil.leschursdartichaut.ui.slideshow.SlideshowFragment"
+        android:name="fr.lyceejulesfil.leschursdartichaut.ui.website.WebsiteFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/nav_quizz"
+        android:name="fr.lyceejulesfil.leschursdartichaut.ui.quizz.QuizzFragment"
+        android:label="@string/menu_quiz" />
 </navigation>

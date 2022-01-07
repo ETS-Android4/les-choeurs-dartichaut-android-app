@@ -1,16 +1,16 @@
-package fr.lyceejulesfil.leschursdartichaut.ui.slideshow;
+package fr.lyceejulesfil.leschursdartichaut.ui.googlemaps;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SlideshowViewModel extends ViewModel {
+public class GoogleMapsViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public SlideshowViewModel() {
+    public GoogleMapsViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is slideshow fragment");
+        mText.setValue("This is gallery fragment");
     }
 
     public LiveData<String> getText() {

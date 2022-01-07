@@ -1,4 +1,4 @@
-package fr.lyceejulesfil.leschursdartichaut.ui.gallery;
+package fr.lyceejulesfil.leschursdartichaut.ui.googlemaps;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,18 +12,17 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import fr.lyceejulesfil.leschursdartichaut.R;
 import fr.lyceejulesfil.leschursdartichaut.databinding.FragmentGalleryBinding;
 
-public class GalleryFragment extends Fragment {
+public class GoogleMapsFragment extends Fragment {
 
-    private GalleryViewModel galleryViewModel;
+    private GoogleMapsViewModel galleryViewModel;
     private FragmentGalleryBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         galleryViewModel =
-                new ViewModelProvider(this).get(GalleryViewModel.class);
+                new ViewModelProvider(this).get(GoogleMapsViewModel.class);
 
         binding = FragmentGalleryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
