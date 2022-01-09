@@ -6,14 +6,9 @@ import androidx.lifecycle.ViewModel;
 
 public class QuizzViewModel extends ViewModel {
 
-    private MutableLiveData<String> mText;
 
     public QuizzViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is Quizz fragment");
+
     }
 
-    public LiveData<String> getText() {
-        return mText;
-    }
 }

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D8B8FF"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <!--ImageView used for showing pictures along with questions-->
+    <ImageView
+        android:id="@+id/QuizzImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/imagepost01" />
+
+    <!--TextView used for showing questions on screen-->
+    <TextView
+        android:id="@+id/answer_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="@string/Question1"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
+    <!--Using another LinearLayout for showing buttons
+        in horizontal orientation-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <!--TrueButton-->
+        <Button
+            android:id="@+id/true_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:backgroundTint="#5BD91B"
+            android:text="Vrai"
+            android:textSize="20sp" />
+
+        <!--FalseButton-->
+        <Button
+            android:id="@+id/false_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:backgroundTint="#E33328"
+            android:text="Faux"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <!--PreviousButton-->
+        <ImageButton
+            android:id="@+id/prev_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#DFD2D1"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:text="Preview" />
+
+        <!--NextButton-->
+        <ImageButton
+            android:id="@+id/next_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#DFD2D1"
+            android:src="@drawable/ic_baseline_arrow_forward_24"
+            android:text="Next" />
+
+    </LinearLayout>
+</LinearLayout>

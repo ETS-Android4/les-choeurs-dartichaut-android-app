@@ -29,4 +29,14 @@
     <string name="les_m_dias_locaux_ind">Les médias locaux (Indépendant et France Bleu Roussillon) et à certaines occasions nationaux (Midi Olympique, France 3, Canal + Sports), relaient régulièrement nos actions grâce au soutien (participation aux clips et aux enregistrements studio) de nos parrains parmi lesquels: D’autres personnalités nous témoignent également leur appui comme Jean Jacques Goldman qui a, par quatre courriers (dernier en date le 22 mai 2012), renouvelé ses encouragements à nos bénévoles.</string>
     <string name="michael_jones">Michael Jones nous a également donné un coup de pouce en acceptant une interview filmée sur le thème de l’action caritative en 2011.</string>
     <string name="nos_actions_se_poursuivent">Nos actions se poursuivent actuellement dans un partenariat privilégié avec les Restos du Cœur. Ce site est destiné à archiver la vie de l’association, à en présenter l’actualité, mais avant tout à remercier tous ceux qui nous apportent leur aide et leur soutien au quotidien (public, bénévoles, artistes, parrains, sponsors, médias etc…)</string>
+    <string name="Question1">Année de création : 17-02-2006 - Il y a 15 ans</string>
+    <string name="Question2">2016 : 11K€ reversés à Théléton et Restos du Cœur</string>
+    <string name="Question3">Activité : Manifestations</string>
+    <string name="Question4">Est-ce que LES CHOEURS D\'ARTICHAUT donne des leçons de musique et chant ?</string>
+    <string name="Question5">27 mars 2021 : Concert donné au profit de l\'association \'\'\Dans les yeux de Loli\'\'</string>
+    <string name="correct_answer">C\'est correct</string>
+    <string name="wrong_answer">C\'est incorrect</string>
+    <string name="correct"><b>Réponse correcte</b> \n
+                           <b>%1$d</b> sur 5</string>
+
 </resources>

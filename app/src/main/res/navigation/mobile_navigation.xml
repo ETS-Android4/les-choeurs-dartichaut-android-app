@@ -25,5 +25,6 @@
     <fragment
         android:id="@+id/nav_quizz"
         android:name="fr.lyceejulesfil.leschursdartichaut.ui.quizz.QuizzFragment"
-        android:label="@string/menu_quiz" />
+        android:label="@string/menu_quiz"
+        tools:layout="@layout/fragment_quizz"/>
 </navigation>
