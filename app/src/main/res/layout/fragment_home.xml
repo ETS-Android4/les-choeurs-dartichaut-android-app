@@ -6,17 +6,277 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-    <TextView
-        android:id="@+id/text_home"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        tools:ignore="SpeakableTextPresentCheck">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ECC5FD"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/qui_sommes_nous"
+                android:textAlignment="center"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                android:typeface="normal" />
+
+            <LinearLayout
+                android:id="@+id/Presentaion"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#E8B5FF"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/Desc01"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="8sp"
+                    android:text="@string/depuis_8_ans_maintenant"
+                    android:textSize="20sp"
+                    android:translationX="4dp" />
+
+                <TextView
+                    android:id="@+id/desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="8sp"
+                    android:text="@string/gr_ce_des_concerts"
+                    android:textSize="20sp"
+                    android:translationX="4dp" />
+
+                <TextView
+                    android:id="@+id/desc2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="8sp"
+                    android:text="@string/nous_comptons_dans_nos_rangs_des_b_n_voles_aux_comp_tences_vari_es_chanteurs_musiciens_danseurs_infographiste_peintre_d_corateur_et_travaillons_en_partenariat_avec_un_studio_d_enregistrement_pour_la_musique_et_l_idem_pour_la_vid_o_toutes_ces_forces_vives_sont_sur_le_pont_pour_la_cr_ation_la_pr_paration_la_promotion_et_la_bonne_tenue_de_deux_trois_manifestations_par_an"
+                    android:textSize="20sp"
+                    android:translationX="4dp" />
+
+                <TextView
+                    android:id="@+id/desc3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="8sp"
+                    android:text="@string/les_m_dias_locaux_ind"
+                    android:textSize="20sp"
+                    android:translationX="4dp" />
+
+                <TextView
+                    android:id="@+id/desc4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="8sp"
+                    android:text="@string/michael_jones"
+                    android:textSize="20sp"
+                    android:translationX="4dp" />
+
+                <TextView
+                    android:id="@+id/desc5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="8sp"
+                    android:text="@string/nos_actions_se_poursuivent"
+                    android:textSize="20sp"
+                    android:translationX="4dp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:typeface="normal" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/les_nouveaut_s"
+                android:textAlignment="center"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                android:typeface="normal" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:typeface="normal" />
+
+            <LinearLayout
+                android:id="@+id/Post01"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#E8B5FF"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/f_vrier_2016_a_bient_t"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
+                    android:textSize="20sp"
+                    android:textStyle="italic"
+                    android:translationX="4dp"
+                    tools:text="février 2016 - A bientôt!" />
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="false"
+                    android:cropToPadding="false"
+                    android:scaleType="center"
+                    android:scaleX="1.1"
+                    android:scaleY="1"
+                    android:src="@drawable/imagepost01"
+                    android:contentDescription="@string/todo" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="8sp"
+                    android:text="@string/apr_s_quelques_mois_sur_la_br_che_adapei_th_l_ton_et_restos_du_c_ur_et_un_peu_plus_de_11_000_euros_revers_s_les_ch_urs_d_artichaut_vont_prendre_un_peu_de_repos_a_tr_s_bient_t_pour_de_nouvelles_aventures_solidairement_v_tre"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                android:typeface="normal" />
+
+            <LinearLayout
+                android:id="@+id/Post02"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#E8B5FF"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/d_cembre_2015_une_tr_s_bonne_ann_e"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
+                    android:textSize="20sp"
+                    android:textStyle="italic"
+                    android:translationX="4dp"
+                    tools:text="décembre 2015 - Une très bonne année!" />
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="false"
+                    android:cropToPadding="false"
+                    android:scaleType="center"
+                    android:scaleX="1.1"
+                    android:scaleY="1"
+                    android:src="@drawable/fondback2015"
+                    android:contentDescription="@string/todo" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="8sp"
+                    android:text="@string/bonjour_tous_et_meilleurs_v_ux_pour_l_ann_e_venir_voici_l_affiche_du_nouveau_spectacle_in_dit_100_pour_100_original_nous_esp_rons_de_tout_coeur_vous_retrouver_pour_notre_rendez_vous_annuel_au_profit_des_restos_du_c_ur_samedi_6_et_dimanche_7_f_vrier_prochains_salle_des_f_tes_de_villelongue_pour_obtenir_vos_places_permanence_des_ventes_de_billets_samedi_16_janvier_18h_au_point_jeunes_de_villelongue_nous_avons_h_te"
+                    android:textSize="20sp"
+                    android:translationX="4dp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                android:typeface="normal" />
+
+            <LinearLayout
+                android:id="@+id/Post03"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#E8B5FF"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView91"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/f_vrier_2013_bilan_2012_2013"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
+                    android:textSize="20sp"
+                    android:textStyle="italic"
+                    android:translationX="4dp"
+                    tools:text="décembre 2015 - Une très bonne année!" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="8sp"
+                    android:text="@string/apr_s_un_dernier_tour_de_piste"
+                    android:textSize="20sp"
+                    android:translationX="4dp" />
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="8sp"
+                    android:text="@string/l_occasion_de_remercier_de_tout"
+                    android:textSize="20sp"
+                    android:translationX="4dp" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="8sp"
+                    android:text="@string/restez_en_contact_nous"
+                    android:textSize="20sp"
+                    android:translationX="4dp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                android:typeface="normal" />
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
