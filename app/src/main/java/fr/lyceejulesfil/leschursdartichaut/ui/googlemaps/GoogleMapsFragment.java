@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,69 +20,94 @@ import androidx.lifecycle.ViewModelProvider;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
 import fr.lyceejulesfil.leschursdartichaut.databinding.FragmentGalleryBinding;
 
 import fr.lyceejulesfil.leschursdartichaut.R;
 
-public class GoogleMapsFragment extends Fragment implements OnMapReadyCallback {
+public class GoogleMapsFragment extends Fragment implements OnMapReadyCallback{
     private GoogleMapsViewModel galleryViewModel;
-    public FragmentGalleryBinding binding;
     private GoogleMap mMap;
+    public MapView mapView;
 
-    @Override
-    public void onCreate(Bundle saveInstanceState)
+    public static MapFragment newInstance(String param1, String param2)
     {
-        super.onCreate(saveInstanceState);
+        MapFragment fragment = new MapFragment();
+        return fragment;
     }
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        galleryViewModel =
-                new ViewModelProvider(this).get(GoogleMapsViewModel.class);
-
-        binding = FragmentGalleryBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_gallery, container, false);
 
         try {
-            if (ContextCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(getActivity(), new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 101);
-            } else {
-                if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(getActivity(), new String[]{android.Manifest.permission.ACCESS_COARSE_LOCATION}, 101);
-                } else {
-                    SupportMapFragment mapFragment = (SupportMapFragment) getFragmentManager().findFragmentById(R.id.map);
-                    mapFragment.getMapAsync(this);
-                }
+            if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 101);
+            }
+            else if(ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED)
+            {
+                mapView = (MapView) v.findViewById(R.id.mapview);
+                mapView.onCreate(savedInstanceState);
+
+                mapView.getMapAsync(this);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return root;
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
+        return v;
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
 
-        // Add a marker in Sydney and move the camera
+        mMap.getUiSettings().setZoomControlsEnabled(false);
+        mMap.getUiSettings().setMyLocationButtonEnabled(true);
+        mMap.setMyLocationEnabled(true);
+        mMap.setIndoorEnabled(true);
+        mMap.setBuildingsEnabled(true);
+
         LatLng Vil = new LatLng(42.727218, 2.983788);
         LatLng VilAd = new LatLng(42.727095, 2.983776);
         mMap.addMarker(new MarkerOptions().position(Vil).title("Lieu de l\'association"));
         mMap.addMarker(new MarkerOptions().position(VilAd).title("3 Rue Saint-Marcel, 66410 Villelongue-de-la-Salanque"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(Vil));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(VilAd));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Vil,300));
+        Toast.makeText(getContext(),"Carte chargé avec succès !", Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void onResume() {
+        mapView.onResume();
+        super.onResume();
+    }
+
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mapView.onPause();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mapView.onDestroy();
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        mapView.onLowMemory();
+    }
 
 }
