@@ -22,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import fr.lyceejulesfil.leschursdartichaut.databinding.ActivityMainBinding;
 import fr.lyceejulesfil.leschursdartichaut.ui.googlemaps.GoogleMapsFragment;
+import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
 
