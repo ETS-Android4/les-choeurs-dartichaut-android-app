@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.Menu;
 import android.webkit.WebView;
 
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -18,6 +19,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import fr.lyceejulesfil.leschursdartichaut.databinding.ActivityMainBinding;
+import fr.lyceejulesfil.leschursdartichaut.ui.googlemaps.GoogleMapsFragment;
 
 public class MainActivity extends AppCompatActivity {
 
