@@ -3,9 +3,11 @@ package fr.lyceejulesfil.leschursdartichaut;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.webkit.WebView;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.material.snackbar.Snackbar;
@@ -40,10 +42,10 @@ public class MainActivity extends AppCompatActivity {
                 String[] mail = new String[]{"danslesyeuxdeloli@gmail.com"};
                 Intent emailIntent = new Intent(Intent.ACTION_SEND);
                 emailIntent.setType("text/plain");
-                emailIntent.putExtra(Intent.EXTRA_EMAIL,mail);
+                emailIntent.putExtra(Intent.EXTRA_EMAIL, mail);
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Contact Les choeurs d'artichaut");
                 emailIntent.putExtra(Intent.EXTRA_TEXT, "Envoyé via L'application 'Les choeurs d'artichaut'.");
-                startActivity(Intent.createChooser(emailIntent,"Choisissez de l'application"));
+                startActivity(Intent.createChooser(emailIntent, "Choisissez de l'application"));
             }
         });
 
@@ -82,5 +84,20 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_auteur:
+                Toast.makeText(this, "Maxime66410 | FurranyStudio", Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.action_version:
+                Toast.makeText(this, "Version : 1.0", Toast.LENGTH_LONG).show();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

@@ -5,7 +5,8 @@
     <string name="nav_header_title">Les choeurs d\'artichaut</string>
     <string name="nav_header_subtitle">danslesyeuxdeloli@gmail.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_auteur">Auteur</string>
+    <string name="action_version">Version</string>
 
     <string name="menu_home">Accueil</string>
     <string name="menu_gallery">Google Maps</string>
