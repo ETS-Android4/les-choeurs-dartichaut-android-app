@@ -1,6 +1,8 @@
 package fr.lyceejulesfil.leschursdartichaut;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -15,6 +17,8 @@ import android.widget.Toast;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -114,6 +118,14 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        try {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 101);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -137,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Maxime66410 | FurranyStudio", Toast.LENGTH_LONG).show();
                 return true;
             case R.id.action_version:
-                Toast.makeText(this, "Version : 1.0", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Version : 2.0", Toast.LENGTH_LONG).show();
                 return true;
 
             default:
