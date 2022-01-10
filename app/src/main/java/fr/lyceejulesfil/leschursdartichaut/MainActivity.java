@@ -7,9 +7,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.webkit.WebView;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -29,12 +31,21 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
 
+    public boolean QSN = false;
+    public boolean LN = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        // Qui Sommes nous ?
+        LinearLayout Presentation = (LinearLayout)binding.getRoot().findViewById(R.id.Presentaion);
+        LinearLayout LesNouveauter = (LinearLayout)binding.getRoot().findViewById(R.id.Nouveauter);
+        Button BtnPresentation = (Button)binding.getRoot().findViewById(R.id.BtnPresentation);
+        Button BtnNouveauter = (Button)binding.getRoot().findViewById(R.id.BtnLeNouveauter);
 
         setSupportActionBar(binding.appBarMain.toolbar);
         binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
@@ -71,6 +82,38 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        BtnPresentation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(QSN == false)
+                {
+                    QSN = true;
+                    Presentation.setVisibility(View.VISIBLE);
+                }
+                else
+                {
+                    QSN = false;
+                    Presentation.setVisibility(View.GONE);
+                }
+            }
+        });
+
+        BtnNouveauter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(LN == false)
+                {
+                    LN = true;
+                    LesNouveauter.setVisibility(View.VISIBLE);
+                }
+                else
+                {
+                    LN = false;
+                    LesNouveauter.setVisibility(View.GONE);
+                }
+            }
+        });
     }
 
     @Override

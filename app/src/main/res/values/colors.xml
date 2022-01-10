@@ -8,4 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="rose">#7B3E9C</color>
+    <color name="rose_clair">#ECC5FD</color>
+    <color name="rose_peu_clair">#E8B5FF</color>
 </resources>
