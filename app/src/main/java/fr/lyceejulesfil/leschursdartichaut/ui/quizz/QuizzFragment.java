@@ -50,23 +50,34 @@ public class QuizzFragment extends Fragment implements View.OnClickListener {
     private QuizzViewModel quizzViewModel;
     private FragmentQuizzBinding binding;
 
+    // mise en place de l'affichage
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         quizzViewModel = new ViewModelProvider(this).get(QuizzViewModel.class);
 
         binding = FragmentQuizzBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
+        View root = binding.getRoot(); // Récupère tout les objet sur le xml
 
+        // Récupère le bouton Faux
         falseButton = binding.getRoot().findViewById(R.id.false_button);
+        // Récupère le bouton Vrai
         trueButton = binding.getRoot().findViewById(R.id.true_button);
+        // Récupère le bouton Suivant
         nextButton = binding.getRoot().findViewById(R.id.next_button);
+        // Récupère le bouton Précédant
         prevButton = binding.getRoot().findViewById(R.id.prev_button);
 
+        // Récupère le texte de la question
         questionTextView = binding.getRoot().findViewById(R.id.answer_text_view);
+        // Récupère l'image de la question
         Image = binding.getRoot().findViewById(R.id.QuizzImage);
+        // Si on clique sur bouton Faux
         falseButton.setOnClickListener(this);
+        // Si on clique sur bouton Vrai
         trueButton.setOnClickListener(this);
+        // Si on clique sur bouton Suivant
         nextButton.setOnClickListener(this);
+        // Si on clique sur bouton Précédant
         prevButton.setOnClickListener(this);
 
         return root;
@@ -78,27 +89,27 @@ public class QuizzFragment extends Fragment implements View.OnClickListener {
         binding = null;
     }
 
+    //  Vérification des conditions
     @SuppressLint("SetTextI18n")
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onClick(View view) {
 
         switch (view.getId()) {
-            case R.id.false_button:
+            case R.id.false_button: // Si la on clique sur le bouton faux
                 checkAnswer(false);
                 break;
 
-            case R.id.true_button:
+            case R.id.true_button:  // Si la on clique sur le bouton Vrai
                 checkAnswer(true);
                 break;
 
-            case R.id.next_button:
+            case R.id.next_button:  // Si la on clique sur le bouton Suivant
 
-                if (currentQuestionIndex < 5) {
-                    currentQuestionIndex
-                            = currentQuestionIndex + 1;
+                if (currentQuestionIndex < 5) { // Si la question actuelle n'est pas supérieur à 5
+                    currentQuestionIndex = currentQuestionIndex + 1;
 
-                    if (currentQuestionIndex == 5) {
+                    if (currentQuestionIndex == 5) {    // Affichage du résultat
                         questionTextView.setText(getString(
                                 R.string.correct, correct));
                         nextButton.setVisibility(
@@ -109,7 +120,7 @@ public class QuizzFragment extends Fragment implements View.OnClickListener {
                                 View.INVISIBLE);
                         falseButton.setVisibility(
                                 View.INVISIBLE);
-                        if (correct > 3)
+                        if (correct > 3) // Si inférieur a 3 question
 
                             questionTextView.setText(
                                     "Réponse correcte " + correct
@@ -119,29 +130,27 @@ public class QuizzFragment extends Fragment implements View.OnClickListener {
                             Image.setImageResource(
                                     R.drawable.picture02);
                     }
-                    else {
+                    else { // Si non on passe a la question suivante
                         updateQuestion();
                     }
                 }
 
                 break;
-            case R.id.prev_button:
+            case R.id.prev_button: // Si on reviens en arrière
                 if (currentQuestionIndex > 0) {
-                    currentQuestionIndex
-                            = (currentQuestionIndex - 1)
-                            % questionBank.length;
+                    currentQuestionIndex = (currentQuestionIndex - 1) % questionBank.length;
                     updateQuestion();
                 }
         }
     }
 
+    // Mettre a jour la question
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void updateQuestion()
     {
+        questionTextView.setText(questionBank[currentQuestionIndex].getAnswerResId());
 
-        questionTextView.setText(
-                questionBank[currentQuestionIndex]
-                        .getAnswerResId());
+        // Choix de l'image pour chaque question
 
         switch (currentQuestionIndex) {
             case 1:
@@ -161,20 +170,20 @@ public class QuizzFragment extends Fragment implements View.OnClickListener {
                 break;
         }
     }
+
+    // Regarder si la question est Vrai ou Fausse
     private void checkAnswer(boolean userChooseCorrect)
     {
-        boolean answerIsTrue
-                = questionBank[currentQuestionIndex]
-                .isAnswerTrue();
+        boolean answerIsTrue = questionBank[currentQuestionIndex].isAnswerTrue();
 
         int toastMessageId;
 
 
-        if (userChooseCorrect == answerIsTrue) {
+        if (userChooseCorrect == answerIsTrue) { // Si elle est vrai alors c'est correct
             toastMessageId = R.string.correct_answer;
             correct++;
         }
-        else {
+        else { // Cas contraire on dit que c'est faux
 
             toastMessageId = R.string.wrong_answer;
         }

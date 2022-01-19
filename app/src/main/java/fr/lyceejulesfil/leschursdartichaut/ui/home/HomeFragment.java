@@ -20,6 +20,7 @@ public class HomeFragment extends Fragment {
     private HomeViewModel homeViewModel;
     private FragmentHomeBinding binding;
 
+    // Affchage de la page accueil
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =

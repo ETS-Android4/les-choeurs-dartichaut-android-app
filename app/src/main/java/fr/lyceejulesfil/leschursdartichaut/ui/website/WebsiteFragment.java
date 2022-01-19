@@ -27,6 +27,8 @@ public class WebsiteFragment extends Fragment {
         binding = FragmentSlideshowBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        // Regarder si on a les permissions
+
         try {
             if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.INTERNET) != PackageManager.PERMISSION_GRANTED ) {
                 ActivityCompat.requestPermissions(getActivity(), new String[]{android.Manifest.permission.INTERNET}, 101);
@@ -45,6 +47,7 @@ public class WebsiteFragment extends Fragment {
                 webSettings.setSupportZoom(true); // Active le support du zoom
                 webSettings.setDefaultTextEncodingName("utf-8"); // Active l'encodage utf-8
 
+                // Affichage Site Web
                 web.loadUrl("https://web.archive.org/web/20130503095723/http://www.leschoeursdartichaut.fr/");
             }
         } catch (Exception e){
